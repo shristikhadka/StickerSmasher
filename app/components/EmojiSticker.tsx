@@ -5,6 +5,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { type ImageSource } from "expo-image";
+import { ImageSourcePropType } from "react-native";
 
 type Props = {
   imageSize: number;
@@ -56,7 +57,7 @@ export default function EmojiSticker({ imageSize, stickerSource }: Props) {
       <Animated.View style={[containerStyle, { top: -350 }]}>
         <GestureDetector gesture={doubleTap}>
           <Animated.Image
-            source={stickerSource}
+            source={stickerSource as ImageSourcePropType}
             resizeMode="contain"
             style={[imageStyle, { width: imageSize, height: imageSize }]}
           />
